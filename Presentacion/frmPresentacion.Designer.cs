@@ -28,20 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPresentacion));
+            this.dgvCatalogo = new System.Windows.Forms.DataGridView();
+            this.pbCatalogo = new System.Windows.Forms.PictureBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCatalogo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvCatalogo
+            // 
+            this.dgvCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCatalogo.Location = new System.Drawing.Point(23, 56);
+            this.dgvCatalogo.Name = "dgvCatalogo";
+            this.dgvCatalogo.Size = new System.Drawing.Size(619, 270);
+            this.dgvCatalogo.TabIndex = 0;
+            this.dgvCatalogo.SelectionChanged += new System.EventHandler(this.dgvCatalogo_SelectionChanged);
+            // 
+            // pbCatalogo
+            // 
+            this.pbCatalogo.Location = new System.Drawing.Point(697, 56);
+            this.pbCatalogo.Name = "pbCatalogo";
+            this.pbCatalogo.Size = new System.Drawing.Size(321, 270);
+            this.pbCatalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCatalogo.TabIndex = 1;
+            this.pbCatalogo.TabStop = false;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(23, 350);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // frmPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 586);
+            this.ClientSize = new System.Drawing.Size(1048, 494);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.pbCatalogo);
+            this.Controls.Add(this.dgvCatalogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPresentacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogo Comercio";
+            this.Load += new System.EventHandler(this.frmPresentacion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCatalogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvCatalogo;
+        private System.Windows.Forms.PictureBox pbCatalogo;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
 

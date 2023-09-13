@@ -10,33 +10,33 @@ namespace AccesoDatos
 {
     public class Datos
     {
-        private SqlConnection connection;
-        private SqlCommand command;
-        private SqlDataReader reader;
+        private SqlConnection conexion;
+        private SqlCommand comando;
+        private SqlDataReader lector;
 
-        public SqlDataReader Reader 
+        public SqlDataReader Lector 
         {
-            get { return reader; }         
+            get { return lector; }         
         }
 
         public Datos()
         {
-            connection = new SqlConnection("server =.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true");
-            command = new SqlCommand();
+            conexion = new SqlConnection("server =.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true");
+            comando = new SqlCommand();
         }
 
         public void setConsulta(string consulta)
         {
-            command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = consulta;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = consulta;
         }
         public void ejecutarLectura()
         {
-            command.Connection = connection;
+            comando.Connection = conexion;
             try
             {
-                connection.Open();
-                reader = command.ExecuteReader();
+                conexion.Open();
+                lector = comando.ExecuteReader();
             }
             catch (Exception ex)
             {
@@ -47,11 +47,11 @@ namespace AccesoDatos
 
         public void ejecutarAccion()
         {
-            command.Connection = connection;
+            comando.Connection = conexion;
             try
             {
-                connection.Open();
-                command.ExecuteNonQuery();
+                conexion.Open();
+                comando.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -61,14 +61,14 @@ namespace AccesoDatos
 
         public void setParametro(string nombre, object valor)
         {
-            command.Parameters.AddWithValue(nombre, valor);
+            comando.Parameters.AddWithValue(nombre, valor);
         }
 
         public void cerrarConexion()
         {
-            if (reader != null)
-                reader.Close();
-            connection.Close();
+            if (lector != null)
+                lector.Close();
+            conexion.Close();
         }
 
 
