@@ -22,6 +22,17 @@ namespace Presentacion
 
         private void frmPresentacion_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+
+        private void dgvCatalogo_SelectionChanged(object sender, EventArgs e)
+        {
+                Articulo seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenUrl);   
+        }
+
+        private void cargar()
+        {
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
@@ -31,17 +42,13 @@ namespace Presentacion
                 //ocultarColumnas();
                 //cargarImagen(listaPokemon[0].UrlImagen);
                 dgvCatalogo.Columns["ImagenUrl"].Visible = false;
+                dgvCatalogo.Columns["Id"].Visible = false;
+                cargarImagen(listaArticulo[0].ImagenUrl);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        private void dgvCatalogo_SelectionChanged(object sender, EventArgs e)
-        {
-                Articulo seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.ImagenUrl);   
         }
 
         private void cargarImagen(string imagen)
@@ -52,25 +59,26 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                pbCatalogo.Load("https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.colombianosune.com%2Fejes%2Fplancomunidad%2Fasociaciones%2Fasociacion-artistica-y-cultural-thakhi-runa&psig=AOvVaw3GYWZ186q3Z_wC7nWgRX1I&ust=1694624314199000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJjRwdnFpYEDFQAAAAAdAAAAABAE");
-               throw ex;
+                pbCatalogo.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg");
+               //throw ex;
             }
             
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+            modificar.ShowDialog();
+            cargar();
         }
     }
 }
