@@ -21,8 +21,6 @@ namespace Validaciones
                 pbCatalogo.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg");
             }
         }
-
-
         public bool ValidarNumero(string cad)
         {
             string patron = @"^[0-9]+(\.[0-9]+)?$";

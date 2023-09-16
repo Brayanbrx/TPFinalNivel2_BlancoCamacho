@@ -176,7 +176,44 @@ namespace Negocio
                            consulta += "Codigo like '%" + filtro + "%'";
                            break;
                    }
-               }
+               } else if (campo == "Categoria")
+                {
+                    switch (criterio)
+                    {
+                        case "Celulares":
+                            consulta += "C.Descripcion = 'Celulares'";
+                            break;
+                        case "Televisores":
+                            consulta += "C.Descripcion = 'Televisores'";
+                            break;
+                        case "Media":
+                            consulta += "C.Descripcion = 'Media'";
+                            break;
+                        default:
+                            consulta += "C.Descripcion = 'Audio'";
+                            break;
+                    }
+                } else if (campo == "Marca")
+                {
+                    switch (criterio)
+                    {
+                        case "Samsung":
+                            consulta += "M.Descripcion = 'Samsung'";
+                            break;
+                        case "Apple":
+                            consulta += "M.Descripcion = 'Apple'";
+                            break;
+                        case "Sony":
+                            consulta += "M.Descripcion = 'Sony'";
+                            break;
+                        case "Huawei":
+                            consulta += "M.Descripcion = 'Huawei'";
+                            break;
+                        default:
+                            consulta += "M.Descripcion = 'Motorola'";
+                            break;
+                    }
+                }
                else
                {
                    switch (criterio)

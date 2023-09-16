@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAltaArticulo));
             this.lbCodigo = new System.Windows.Forms.Label();
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbDescripcion = new System.Windows.Forms.Label();
@@ -196,7 +197,7 @@
             this.pbCatalogo.Location = new System.Drawing.Point(250, 19);
             this.pbCatalogo.Name = "pbCatalogo";
             this.pbCatalogo.Size = new System.Drawing.Size(330, 390);
-            this.pbCatalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCatalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCatalogo.TabIndex = 14;
             this.pbCatalogo.TabStop = false;
             // 
@@ -279,6 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(599, 420);
             this.Controls.Add(this.lbCamposRequeridos);
             this.Controls.Add(this.lbReq2);
@@ -302,6 +304,9 @@
             this.Controls.Add(this.lbDescripcion);
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.lbCodigo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(615, 459);
+            this.MinimumSize = new System.Drawing.Size(615, 459);
             this.Name = "frmAltaArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Articulo";

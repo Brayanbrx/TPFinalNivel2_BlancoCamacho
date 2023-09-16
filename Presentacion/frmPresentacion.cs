@@ -29,6 +29,8 @@ namespace Presentacion
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Descripcion");
             cboCampo.Items.Add("Precio");
+            cboCampo.Items.Add("Categoria");
+            cboCampo.Items.Add("Marca");
         }
         private void dgvCatalogo_SelectionChanged(object sender, EventArgs e)
         {
@@ -36,6 +38,13 @@ namespace Presentacion
             {
                 Articulo seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
                 validar.CargarImagen(pbCatalogo, seleccionado.ImagenUrl);
+
+                lbDetalles.Text = "Codigo: "+seleccionado.Codigo.ToString()+"\r\n" +
+                    "Nombre: " +seleccionado.Nombre.ToString() +"\r\n" +
+                    "Descripción: "+seleccionado.Descripcion.ToString() +"\r\n" +
+                    "Precio: " + seleccionado.Precio.ToString() +"\r\n" +
+                    "Categoria: " + seleccionado.Categoria.ToString() +"\r\n" +
+                    "Marca: " + seleccionado.Marca.ToString() +"\r\n";
             }           
         }
         private void cargar()
@@ -145,6 +154,21 @@ namespace Presentacion
                 cboCriterio.Items.Add("Mayor a");
                 cboCriterio.Items.Add("Menor a");
                 cboCriterio.Items.Add("Igual a");
+            } else if (opcion == "Categoria")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Celulares");
+                cboCriterio.Items.Add("Televisores");
+                cboCriterio.Items.Add("Media");
+                cboCriterio.Items.Add("Audio");
+            } else if (opcion == "Marca")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Samsung");
+                cboCriterio.Items.Add("Apple");
+                cboCriterio.Items.Add("Sony");
+                cboCriterio.Items.Add("Huawei");
+                cboCriterio.Items.Add("Motorola");
             }
             else{
                 cboCriterio.Items.Clear();
@@ -153,12 +177,15 @@ namespace Presentacion
                 cboCriterio.Items.Add("Contiene");
             }
             btnFiltro.Enabled = false;
+            if(opcion == "Categoria" || opcion == "Marca")
+                txtFiltroAvanzado.Enabled = false;
+            else
+                txtFiltroAvanzado.Enabled = true;
         }
         private void cboCriterio_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboCriterio.SelectedItem != null)
                 btnFiltro.Enabled = true;   
         }
-
     }
 }

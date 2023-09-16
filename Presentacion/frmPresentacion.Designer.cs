@@ -46,6 +46,7 @@
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbRecomendaciones = new System.Windows.Forms.Label();
+            this.lbDetalles = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCatalogo)).BeginInit();
             this.SuspendLayout();
@@ -72,8 +73,8 @@
             // 
             this.pbCatalogo.Location = new System.Drawing.Point(622, 10);
             this.pbCatalogo.Name = "pbCatalogo";
-            this.pbCatalogo.Size = new System.Drawing.Size(330, 390);
-            this.pbCatalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCatalogo.Size = new System.Drawing.Size(330, 359);
+            this.pbCatalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCatalogo.TabIndex = 1;
             this.pbCatalogo.TabStop = false;
             // 
@@ -235,11 +236,24 @@
             this.lbRecomendaciones.TabIndex = 15;
             this.lbRecomendaciones.Text = "Seleccione un Campo y un Criterio para buscar";
             // 
+            // lbDetalles
+            // 
+            this.lbDetalles.AutoSize = true;
+            this.lbDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDetalles.Location = new System.Drawing.Point(621, 372);
+            this.lbDetalles.Name = "lbDetalles";
+            this.lbDetalles.Size = new System.Drawing.Size(75, 90);
+            this.lbDetalles.TabIndex = 16;
+            this.lbDetalles.Text = "Codigo:\r\nNombre:\r\nDescripción:\r\nPrecio:\r\nCategoria:\r\nMarca:";
+            // 
             // frmPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 473);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(964, 481);
+            this.Controls.Add(this.lbDetalles);
             this.Controls.Add(this.lbRecomendaciones);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFiltroAvanzado);
@@ -257,12 +271,13 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbCatalogo);
             this.Controls.Add(this.dgvCatalogo);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(980, 512);
-            this.MinimumSize = new System.Drawing.Size(980, 512);
+            this.MaximumSize = new System.Drawing.Size(980, 520);
+            this.MinimumSize = new System.Drawing.Size(980, 520);
             this.Name = "frmPresentacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Catalogo Comercio";
+            this.Text = "Catálogo de Artículos";
             this.Load += new System.EventHandler(this.frmPresentacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCatalogo)).EndInit();
@@ -290,6 +305,7 @@
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbRecomendaciones;
+        private System.Windows.Forms.Label lbDetalles;
     }
 }
 
