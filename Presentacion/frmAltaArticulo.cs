@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Dominio;
 using Negocio;
 using System.Configuration;
+using Validaciones;
 
 namespace Presentacion
 {
@@ -18,6 +19,7 @@ namespace Presentacion
     {
         private Articulo articulo = null;
         private OpenFileDialog archivo = null;
+        private Validacion validacion = new Validacion();
         public frmAltaArticulo()
         {
             InitializeComponent();
@@ -42,8 +44,7 @@ namespace Presentacion
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
                 articulo.ImagenUrl = txtImagenUrl.Text;
                 articulo.Precio = Convert.ToDouble(txtPrecio.Text);
-
-                if(articulo.Id != 0)
+                if(articulo.Id != 0 )
                 {
                     negocio.modificar(articulo);
                     MessageBox.Show("Modificado exitosamente");
@@ -53,7 +54,6 @@ namespace Presentacion
                     negocio.agregar(articulo);
                     MessageBox.Show("Agregado exitosamente");
                 }
-                //Guardo imagen si la levanto localmente
                 if(archivo != null && !(txtImagenUrl.Text.ToUpper().Contains("HTTP")))
                     File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
                 Close();
@@ -83,7 +83,7 @@ namespace Presentacion
                     txtDescripcion.Text = articulo.Descripcion;
                     txtImagenUrl.Text = articulo.ImagenUrl;
                     txtPrecio.Text = Convert.ToString(articulo.Precio);
-                    cargarImagen(articulo.ImagenUrl);
+                    validacion.CargarImagen(pbCatalogo, articulo.ImagenUrl);
                     cboCategoria.SelectedValue = articulo.Categoria.Id;
                     cboMarca.SelectedValue = articulo.Marca.Id;
                 }
@@ -93,26 +93,10 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void txtImagenUrl_Leave(object sender, EventArgs e)
         {
-            cargarImagen(txtImagenUrl.Text);
+            validacion.CargarImagen(pbCatalogo, txtImagenUrl.Text);
         }
-
-        //ponerlo en una clase helper
-        private void cargarImagen(string imagen)
-        {
-            try
-            {
-                pbCatalogo.Load(imagen);
-            }
-            catch (Exception)
-            {
-                pbCatalogo.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg");
-            }
-
-        }
-
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
             OpenFileDialog archivo = new OpenFileDialog();
@@ -120,8 +104,43 @@ namespace Presentacion
             if(archivo.ShowDialog() == DialogResult.OK)
             {
                 txtImagenUrl.Text= archivo.FileName;
-                cargarImagen(archivo.FileName);
+                validacion.CargarImagen(pbCatalogo, archivo.FileName);
+                //cargarImagen(archivo.FileName);
             }   
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+                e.Handled = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            btnAceptar.Enabled = CamposLlenos();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            btnAceptar.Enabled = CamposLlenos();
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            btnAceptar.Enabled = CamposLlenos();
+        }
+        
+        private bool CamposLlenos()
+        {
+            return !string.IsNullOrWhiteSpace(txtCodigo.Text) && !string.IsNullOrWhiteSpace(txtNombre.Text) && !string.IsNullOrWhiteSpace(txtPrecio.Text);
         }
     }
 }

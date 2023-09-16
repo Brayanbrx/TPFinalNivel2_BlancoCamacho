@@ -98,6 +98,10 @@
       <Project>{3cb1fbdf-4b14-4fad-af7d-5dab423e4d60}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Validaciones\Validaciones.csproj">
+      <Project>{4e8a3aa1-730f-4276-9024-a851731f8505}</Project>
+      <Name>Validaciones</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

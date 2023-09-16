@@ -10,12 +10,14 @@ using AccesoDatos;
 using System.Net;
 using System.Configuration;
 using System.Text.RegularExpressions;
+using Validaciones;
 
 namespace Negocio
 {
     public class ArticuloNegocio
     {
         private Datos datos = new Datos();
+        private Validacion validacion = new Validacion();
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
@@ -131,7 +133,7 @@ namespace Negocio
             try
              {
                  string consulta = "Select Codigo, Nombre, A.Descripcion, ImagenUrl, C.DESCRIPCION Categoria, M.Descripcion Marca,Precio, A.IdCategoria, A.IdMarca, A.Id  from ARTICULOS A, CATEGORIAS C, MARCAS M Where C.Id = A.idCategoria AND M.Id = A.IdMarca And Precio > 0 And ";
-                if (campo == "Precio" && ValidarNumero(filtro))
+                if (campo == "Precio" && validacion.ValidarNumero(filtro))
                 {
                         switch (criterio)
                         {
@@ -218,12 +220,6 @@ namespace Negocio
             {
                 throw ex ;
             }
-        }
-
-        private bool ValidarNumero(string cad)
-        {
-            string patron = @"^[0-9]+(\.[0-9]+)?$";
-            return Regex.IsMatch(cad, patron);
         }
     }
 }

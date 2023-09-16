@@ -55,6 +55,10 @@
       <Project>{fde3cc50-6938-4d95-b40f-d27f3bfa77bf}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Validaciones\Validaciones.csproj">
+      <Project>{4e8a3aa1-730f-4276-9024-a851731f8505}</Project>
+      <Name>Validaciones</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

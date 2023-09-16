@@ -46,6 +46,10 @@
             this.btnAgregarImagen = new System.Windows.Forms.Button();
             this.lbPrecio = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.lbReq1 = new System.Windows.Forms.Label();
+            this.lbReq3 = new System.Windows.Forms.Label();
+            this.lbReq2 = new System.Windows.Forms.Label();
+            this.lbCamposRequeridos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbCatalogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +57,7 @@
             // 
             this.lbCodigo.AutoSize = true;
             this.lbCodigo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCodigo.Location = new System.Drawing.Point(33, 25);
+            this.lbCodigo.Location = new System.Drawing.Point(32, 44);
             this.lbCodigo.Name = "lbCodigo";
             this.lbCodigo.Size = new System.Drawing.Size(55, 18);
             this.lbCodigo.TabIndex = 0;
@@ -63,7 +67,7 @@
             // 
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombre.Location = new System.Drawing.Point(26, 55);
+            this.lbNombre.Location = new System.Drawing.Point(25, 74);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(63, 18);
             this.lbNombre.TabIndex = 1;
@@ -73,7 +77,7 @@
             // 
             this.lbDescripcion.AutoSize = true;
             this.lbDescripcion.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescripcion.Location = new System.Drawing.Point(5, 83);
+            this.lbDescripcion.Location = new System.Drawing.Point(4, 102);
             this.lbDescripcion.Name = "lbDescripcion";
             this.lbDescripcion.Size = new System.Drawing.Size(84, 18);
             this.lbDescripcion.TabIndex = 2;
@@ -82,31 +86,34 @@
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(91, 25);
+            this.txtCodigo.Location = new System.Drawing.Point(90, 44);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(121, 23);
             this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(91, 55);
+            this.txtNombre.Location = new System.Drawing.Point(90, 74);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(121, 23);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(91, 83);
+            this.txtDescripcion.Location = new System.Drawing.Point(90, 102);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 23);
             this.txtDescripcion.TabIndex = 2;
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Enabled = false;
             this.btnAceptar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(29, 237);
+            this.btnAceptar.Location = new System.Drawing.Point(28, 256);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 6;
@@ -117,18 +124,19 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(137, 237);
+            this.btnCancelar.Location = new System.Drawing.Point(136, 256);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lbCategoria
             // 
             this.lbCategoria.AutoSize = true;
             this.lbCategoria.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategoria.Location = new System.Drawing.Point(19, 139);
+            this.lbCategoria.Location = new System.Drawing.Point(18, 158);
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(71, 18);
             this.lbCategoria.TabIndex = 8;
@@ -138,7 +146,7 @@
             // 
             this.lbMarca.AutoSize = true;
             this.lbMarca.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMarca.Location = new System.Drawing.Point(39, 167);
+            this.lbMarca.Location = new System.Drawing.Point(38, 186);
             this.lbMarca.Name = "lbMarca";
             this.lbMarca.Size = new System.Drawing.Size(49, 18);
             this.lbMarca.TabIndex = 9;
@@ -149,7 +157,7 @@
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(91, 139);
+            this.cboCategoria.Location = new System.Drawing.Point(90, 158);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(121, 23);
             this.cboCategoria.TabIndex = 4;
@@ -159,7 +167,7 @@
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(91, 167);
+            this.cboMarca.Location = new System.Drawing.Point(90, 186);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(121, 23);
             this.cboMarca.TabIndex = 5;
@@ -167,7 +175,7 @@
             // txtImagenUrl
             // 
             this.txtImagenUrl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImagenUrl.Location = new System.Drawing.Point(91, 111);
+            this.txtImagenUrl.Location = new System.Drawing.Point(90, 130);
             this.txtImagenUrl.Name = "txtImagenUrl";
             this.txtImagenUrl.Size = new System.Drawing.Size(121, 23);
             this.txtImagenUrl.TabIndex = 3;
@@ -177,7 +185,7 @@
             // 
             this.lbImagenUrl.AutoSize = true;
             this.lbImagenUrl.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbImagenUrl.Location = new System.Drawing.Point(10, 111);
+            this.lbImagenUrl.Location = new System.Drawing.Point(9, 130);
             this.lbImagenUrl.Name = "lbImagenUrl";
             this.lbImagenUrl.Size = new System.Drawing.Size(79, 18);
             this.lbImagenUrl.TabIndex = 12;
@@ -195,7 +203,7 @@
             // btnAgregarImagen
             // 
             this.btnAgregarImagen.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarImagen.Location = new System.Drawing.Point(218, 111);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(217, 130);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(26, 23);
             this.btnAgregarImagen.TabIndex = 15;
@@ -207,7 +215,7 @@
             // 
             this.lbPrecio.AutoSize = true;
             this.lbPrecio.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrecio.Location = new System.Drawing.Point(38, 195);
+            this.lbPrecio.Location = new System.Drawing.Point(37, 214);
             this.lbPrecio.Name = "lbPrecio";
             this.lbPrecio.Size = new System.Drawing.Size(51, 18);
             this.lbPrecio.TabIndex = 16;
@@ -216,16 +224,66 @@
             // txtPrecio
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(91, 195);
+            this.txtPrecio.Location = new System.Drawing.Point(90, 214);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(121, 23);
             this.txtPrecio.TabIndex = 17;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            // 
+            // lbReq1
+            // 
+            this.lbReq1.AutoSize = true;
+            this.lbReq1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReq1.ForeColor = System.Drawing.Color.Red;
+            this.lbReq1.Location = new System.Drawing.Point(23, 44);
+            this.lbReq1.Name = "lbReq1";
+            this.lbReq1.Size = new System.Drawing.Size(13, 15);
+            this.lbReq1.TabIndex = 18;
+            this.lbReq1.Text = "*";
+            // 
+            // lbReq3
+            // 
+            this.lbReq3.AutoSize = true;
+            this.lbReq3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReq3.ForeColor = System.Drawing.Color.Red;
+            this.lbReq3.Location = new System.Drawing.Point(28, 214);
+            this.lbReq3.Name = "lbReq3";
+            this.lbReq3.Size = new System.Drawing.Size(13, 15);
+            this.lbReq3.TabIndex = 19;
+            this.lbReq3.Text = "*";
+            // 
+            // lbReq2
+            // 
+            this.lbReq2.AutoSize = true;
+            this.lbReq2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReq2.ForeColor = System.Drawing.Color.Red;
+            this.lbReq2.Location = new System.Drawing.Point(16, 74);
+            this.lbReq2.Name = "lbReq2";
+            this.lbReq2.Size = new System.Drawing.Size(13, 15);
+            this.lbReq2.TabIndex = 20;
+            this.lbReq2.Text = "*";
+            // 
+            // lbCamposRequeridos
+            // 
+            this.lbCamposRequeridos.AutoSize = true;
+            this.lbCamposRequeridos.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCamposRequeridos.ForeColor = System.Drawing.Color.Red;
+            this.lbCamposRequeridos.Location = new System.Drawing.Point(12, 19);
+            this.lbCamposRequeridos.Name = "lbCamposRequeridos";
+            this.lbCamposRequeridos.Size = new System.Drawing.Size(121, 15);
+            this.lbCamposRequeridos.TabIndex = 21;
+            this.lbCamposRequeridos.Text = "*Campos Requeridos";
             // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 420);
+            this.Controls.Add(this.lbCamposRequeridos);
+            this.Controls.Add(this.lbReq2);
+            this.Controls.Add(this.lbReq3);
+            this.Controls.Add(this.lbReq1);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lbPrecio);
             this.Controls.Add(this.btnAgregarImagen);
@@ -274,5 +332,9 @@
         private System.Windows.Forms.Button btnAgregarImagen;
         private System.Windows.Forms.Label lbPrecio;
         private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Label lbReq1;
+        private System.Windows.Forms.Label lbReq3;
+        private System.Windows.Forms.Label lbReq2;
+        private System.Windows.Forms.Label lbCamposRequeridos;
     }
 }

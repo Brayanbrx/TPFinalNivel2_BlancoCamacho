@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using Negocio;
 using Dominio;
 using System.Text.RegularExpressions;
+using Validaciones;
 
 namespace Presentacion
 {
     public partial class frmPresentacion : Form
     {
         private List<Articulo> listaArticulo;
+        private Validacion validar = new Validacion();
         public frmPresentacion()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace Presentacion
             if(dgvCatalogo.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.ImagenUrl); 
+                validar.CargarImagen(pbCatalogo, seleccionado.ImagenUrl);
             }           
         }
         private void cargar()
@@ -43,8 +45,8 @@ namespace Presentacion
             {
                 listaArticulo = negocio.listar();
                 dgvCatalogo.DataSource = listaArticulo;
-                ocultarColumnas();          
-                cargarImagen(listaArticulo[0].ImagenUrl);
+                ocultarColumnas();
+                validar.CargarImagen(pbCatalogo, listaArticulo[0].ImagenUrl);
             }
             catch (Exception ex)
             {
@@ -55,17 +57,6 @@ namespace Presentacion
         {
             dgvCatalogo.Columns["ImagenUrl"].Visible = false;
             dgvCatalogo.Columns["Id"].Visible = false;
-        }
-        private void cargarImagen(string imagen)
-        {
-            try
-            {
-                pbCatalogo.Load(imagen);
-            }
-            catch (Exception)
-            {
-                pbCatalogo.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg");
-            } 
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
