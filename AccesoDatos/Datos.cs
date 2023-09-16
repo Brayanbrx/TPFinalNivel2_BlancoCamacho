@@ -18,13 +18,11 @@ namespace AccesoDatos
         {
             get { return lector; }         
         }
-
         public Datos()
         {
             conexion = new SqlConnection("server =.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true");
             comando = new SqlCommand();
         }
-
         public void setConsulta(string consulta)
         {
             comando.CommandType = System.Data.CommandType.Text;
@@ -40,11 +38,9 @@ namespace AccesoDatos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
-
         public void ejecutarAccion()
         {
             comando.Connection = conexion;
