@@ -248,11 +248,12 @@
             // lbCamposRequeridos
             // 
             this.lbCamposRequeridos.AutoSize = true;
-            this.lbCamposRequeridos.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCamposRequeridos.BackColor = System.Drawing.Color.Lavender;
+            this.lbCamposRequeridos.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCamposRequeridos.ForeColor = System.Drawing.Color.Red;
             this.lbCamposRequeridos.Location = new System.Drawing.Point(12, 19);
             this.lbCamposRequeridos.Name = "lbCamposRequeridos";
-            this.lbCamposRequeridos.Size = new System.Drawing.Size(121, 15);
+            this.lbCamposRequeridos.Size = new System.Drawing.Size(122, 15);
             this.lbCamposRequeridos.TabIndex = 21;
             this.lbCamposRequeridos.Text = "*Campos Requeridos";
             // 
@@ -280,7 +281,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(599, 420);
             this.Controls.Add(this.lbCamposRequeridos);
             this.Controls.Add(this.lbReq2);
