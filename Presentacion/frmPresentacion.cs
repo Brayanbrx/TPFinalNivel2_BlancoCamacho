@@ -75,11 +75,17 @@ namespace Presentacion
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado;
-            seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
-            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
-            modificar.ShowDialog();
-            cargar();
+            if (dgvCatalogo.CurrentRow != null && dgvCatalogo.CurrentRow.DataBoundItem != null)
+            {
+                Articulo seleccionado;
+                seleccionado = (Articulo)dgvCatalogo.CurrentRow.DataBoundItem;
+                frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+                modificar.ShowDialog();
+                cargar();
+            } else 
+            {
+                MessageBox.Show("No se ha seleccionado ningún artículo para modificar.");
+            }
         }
         private void btnEliminarFisico_Click(object sender, EventArgs e)
         {
@@ -93,6 +99,12 @@ namespace Presentacion
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             Articulo seleccionado;
+            if (dgvCatalogo.CurrentRow == null || dgvCatalogo.CurrentRow.DataBoundItem == null)
+            {
+                MessageBox.Show("Por favor, selecciona un artículo para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
                 DialogResult respuesta = MessageBox.Show("De verdad queres eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -117,7 +129,7 @@ namespace Presentacion
             string filtro = txtFiltro.Text;
             if (filtro.Length>=2)
             {
-                listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+                listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper()));
             }
             else
             {

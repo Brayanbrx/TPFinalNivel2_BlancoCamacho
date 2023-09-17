@@ -43,14 +43,14 @@
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.txtImagenUrl = new System.Windows.Forms.TextBox();
             this.lbImagenUrl = new System.Windows.Forms.Label();
-            this.pbCatalogo = new System.Windows.Forms.PictureBox();
-            this.btnAgregarImagen = new System.Windows.Forms.Button();
             this.lbPrecio = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lbReq1 = new System.Windows.Forms.Label();
             this.lbReq3 = new System.Windows.Forms.Label();
             this.lbReq2 = new System.Windows.Forms.Label();
             this.lbCamposRequeridos = new System.Windows.Forms.Label();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
+            this.pbCatalogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCatalogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,26 +192,6 @@
             this.lbImagenUrl.TabIndex = 12;
             this.lbImagenUrl.Text = "Imagen Url:";
             // 
-            // pbCatalogo
-            // 
-            this.pbCatalogo.Location = new System.Drawing.Point(250, 19);
-            this.pbCatalogo.Name = "pbCatalogo";
-            this.pbCatalogo.Size = new System.Drawing.Size(330, 390);
-            this.pbCatalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbCatalogo.TabIndex = 14;
-            this.pbCatalogo.TabStop = false;
-            // 
-            // btnAgregarImagen
-            // 
-            this.btnAgregarImagen.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarImagen.Location = new System.Drawing.Point(217, 130);
-            this.btnAgregarImagen.Name = "btnAgregarImagen";
-            this.btnAgregarImagen.Size = new System.Drawing.Size(26, 23);
-            this.btnAgregarImagen.TabIndex = 15;
-            this.btnAgregarImagen.Text = "+";
-            this.btnAgregarImagen.UseVisualStyleBackColor = true;
-            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
-            // 
             // lbPrecio
             // 
             this.lbPrecio.AutoSize = true;
@@ -275,6 +255,26 @@
             this.lbCamposRequeridos.Size = new System.Drawing.Size(121, 15);
             this.lbCamposRequeridos.TabIndex = 21;
             this.lbCamposRequeridos.Text = "*Campos Requeridos";
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarImagen.Image = global::Presentacion.Properties.Resources.busc;
+            this.btnAgregarImagen.Location = new System.Drawing.Point(217, 130);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(26, 23);
+            this.btnAgregarImagen.TabIndex = 15;
+            this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
+            // 
+            // pbCatalogo
+            // 
+            this.pbCatalogo.Location = new System.Drawing.Point(250, 19);
+            this.pbCatalogo.Name = "pbCatalogo";
+            this.pbCatalogo.Size = new System.Drawing.Size(330, 390);
+            this.pbCatalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCatalogo.TabIndex = 14;
+            this.pbCatalogo.TabStop = false;
             // 
             // frmAltaArticulo
             // 
