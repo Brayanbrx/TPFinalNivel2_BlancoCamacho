@@ -149,6 +149,7 @@
             // txtFiltro
             // 
             this.txtFiltro.Location = new System.Drawing.Point(142, 9);
+            this.txtFiltro.MaxLength = 100;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(222, 20);
             this.txtFiltro.TabIndex = 0;
